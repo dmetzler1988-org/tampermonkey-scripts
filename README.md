@@ -12,7 +12,7 @@ Various scripts for tampermonkey browser-plugin.
 
 ## Overview
 
-### [lastpass/error-disabler.js](./lastpass/lastpass-error-disabler.js)
+### [lastpass/error-disabler.js](./lastpass/error-disabler.js)
 
 This disables the error popup from LastPass, which occurs too many times.
 
