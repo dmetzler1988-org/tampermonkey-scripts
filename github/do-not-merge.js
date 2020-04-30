@@ -12,6 +12,9 @@
     'use strict';
 
     const wipRegex = /wip|draft/i;
+    const wipButtonMessage = "WIP, you can't merge!";
+    let buttonTexts = [];
+    let counter = 0;
 
     // Disable buttons on pull request itself.
     const disableButtons = function () {
@@ -19,14 +22,33 @@
             return;
         }
 
+        const container = document.getElementById('partial-pull-merging');
+        const mergeButtonContainer = container.getElementsByClassName('merge-message');
+        let buttons = mergeButtonContainer[0].getElementsByClassName('btn btn-primary');
+
+        if (counter === 0) {
+            for (let i = 0; i < buttons.length; i++) {
+                buttonTexts[i] = buttons[i].innerText.trim();
+            }
+        }
+
+        counter++;
+
         const issueTitle = document.getElementsByClassName('js-issue-title');
         if (issueTitle[0].textContent.match(wipRegex)) {
-            const container = document.getElementById('partial-pull-merging');
-            const mergeButtonContainer = container.getElementsByClassName('merge-message');
-            let buttons = mergeButtonContainer[0].getElementsByClassName('btn btn-primary');
-
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].disabled = true;
+
+                if (buttons[i].textContent !== '') {
+                    buttons[i].textContent = wipButtonMessage;
+                }
+            }
+        } else {
+            for (let i = 0; i < buttons.length; i++) {
+                if (buttons[i].disabled) {
+                    buttons[i].disabled = '';
+                    buttons[i].textContent = buttonTexts[i];
+                }
             }
         }
     };
