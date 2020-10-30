@@ -23,3 +23,10 @@ The keywords can be modified in the script itself and they are case-insensitive.
 
 - It disables the merge button on GitHub pull request page which contains one of the keywords in title.
 - It also increase the opacity of the merge-request item on pull-request list, if it contains one of the keywords.
+
+### [jira/copy-issue-number.js](./jira/copy-issue-number.js)
+
+With this script you can easily copy the number of selected Jira Issue/Task into your clipboard.
+
+It works with a key eventlistener (can be modified) and is set to key: `´`.  
+You need to modify the `match` and `DOMAIN` URL to your Jira board for a better match and to make it sure, that it only works there.
