@@ -30,3 +30,10 @@ With this script you can easily copy the number of selected Jira Issue/Task into
 
 It works with a key eventlistener (can be modified) and is set to key: `´`.  
 You need to modify the `match` and `DOMAIN` URL to your Jira board for a better match and to make it sure, that it only works there.
+
+### [global/broken-link-checker.js](./global/broken-link-checker.js)
+
+This script allows you to check every link (anchor tag) on the current opened webpage, if the links are broken or not.  
+To prevent CORS errors, a proxy site ([https://cors-anywhere.herokuapp.com/](https://cors-anywhere.herokuapp.com/)) will be used to check the links.  
+
+It works with a key eventlistener (can be modified) and is set to key: `´`.
