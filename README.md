@@ -36,4 +36,5 @@ You need to modify the `match` and `DOMAIN` URL to your Jira board for a better 
 This script allows you to check every link (anchor tag) on the current opened webpage, if the links are broken or not.  
 To prevent CORS errors, a proxy site ([https://cors-anywhere.herokuapp.com/](https://cors-anywhere.herokuapp.com/)) will be used to check the links.  
 
-It works with a key eventlistener (can be modified) and is set to key: `´`.
+It works with a key eventlistener (can be modified) and is set to key: `´`.  
+The broken links will be marked with a red background.
