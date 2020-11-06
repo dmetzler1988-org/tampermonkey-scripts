@@ -25,7 +25,7 @@ The keywords can be modified in the script itself and they are case-insensitive.
 This script allows you to check every link (anchor tag) on the current opened webpage, if the links are broken or not.  
 To prevent CORS errors, a proxy site ([https://cors-anywhere.herokuapp.com/](https://cors-anywhere.herokuapp.com/)) will be used to check the links.  
 
-It works with a key eventlistener (can be modified) and is set to key: `´`.  
+It works with a key eventlistener (can be modified) and is set to key: `^`.  
 The broken links will be marked with a red background.
 
 ### [jira/copy-issue-number.js](./jira/copy-issue-number.js)
