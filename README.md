@@ -51,3 +51,16 @@ You need to modify the `match` and `DOMAIN` URL to your Jira board for a better 
 ### [lastpass/error-disabler.js](./lastpass/error-disabler.user.js)
 
 This disables the error popup from LastPass, which occurs too many times.
+
+## Link implementation
+
+If you have a website or similar, where you like to implement these links, you simple need to add a anchor tag which refers to the script.
+
+As example:
+
+```html
+<a href="https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/github/do-not-merge.user.js"
+   target="_blank">
+    tampermonkey-scripts
+</a>
+```
