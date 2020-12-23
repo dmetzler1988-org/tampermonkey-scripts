@@ -4,6 +4,8 @@
 // @version      0.1
 // @description  Disables the error popups from LastPass.
 // @author       dmetzler1988
+// @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/edit/master/lastpass/error-disabler.js
+// @downloadURL  https://github.com/dmetzler1988-org/tampermonkey-scripts/edit/master/lastpass/error-disabler.js
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
