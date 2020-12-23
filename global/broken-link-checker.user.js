@@ -4,8 +4,8 @@
 // @version      0.1
 // @description  Tool to check all anchor tags on website and test if they are broken.
 // @author       dmetzler1988
-// @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/edit/master/global/broken-link-checker.js
-// @downloadURL  https://github.com/dmetzler1988-org/tampermonkey-scripts/edit/master/global/broken-link-checker.js
+// @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/global/broken-link-checker.user.js
+// @downloadURL  https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/global/broken-link-checker.user.js
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
