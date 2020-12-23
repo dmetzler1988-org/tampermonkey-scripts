@@ -4,6 +4,8 @@
 // @version      0.1
 // @description  Do not merge GitHub pull requests with WIP in title.
 // @author       dmetzler1988
+// @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/edit/master/github/do-not-merge.js
+// @downloadURL  https://github.com/dmetzler1988-org/tampermonkey-scripts/edit/master/github/do-not-merge.js
 // @match        https://github.com/*
 // @grant        none
 // ==/UserScript==
