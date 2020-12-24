@@ -25,7 +25,7 @@ Various scripts for tampermonkey browser-plugin.
 
 ## Overview
 
-### [github/do-not-merge.js](./github/do-not-merge.user.js)
+### [github/do-not-merge.user.js](./github/do-not-merge.user.js)
 
 Keywords are: `wip` and `draft`.  
 The keywords can be modified in the script itself and they are case-insensitive.
@@ -33,7 +33,7 @@ The keywords can be modified in the script itself and they are case-insensitive.
 - It disables the merge button on GitHub pull request page which contains one of the keywords in title.
 - It also increase the opacity of the merge-request item on pull-request list, if it contains one of the keywords.
 
-### [global/broken-link-checker.js](./global/broken-link-checker.user.js)
+### [global/broken-link-checker.user.js](./global/broken-link-checker.user.js)
 
 This script allows you to check every link (anchor tag) on the current opened webpage, if the links are broken or not.  
 To prevent CORS errors, a proxy site ([https://cors-anywhere.herokuapp.com/](https://cors-anywhere.herokuapp.com/)) will be used to check the links.  
@@ -41,16 +41,29 @@ To prevent CORS errors, a proxy site ([https://cors-anywhere.herokuapp.com/](htt
 It works with a key eventlistener (can be modified) and is set to key: `^`.  
 The broken links will be marked with a red background.
 
-### [jira/copy-issue-number.js](./jira/copy-issue-number.user.js)
+### [jira/copy-issue-number.user.js](./jira/copy-issue-number.user.js)
 
 With this script you can easily copy the number of selected Jira Issue/Task into your clipboard.
 
 It works with a key eventlistener (can be modified) and is set to key: `´`.  
 You need to modify the `match` and `DOMAIN` URL to your Jira board for a better match and to make it sure, that it only works there.
 
-### [lastpass/error-disabler.js](./lastpass/error-disabler.user.js)
+### [lastpass/error-disabler.user.js](./lastpass/error-disabler.user.js)
 
 This disables the error popup from LastPass, which occurs too many times.
+
+### [parship/counter.user.js](./parship/counter.user.js)
+
+It adds a missing counter to parship messages, to see, how many
+
+- messages
+- spams
+- rejected
+- deleted
+- readed
+- not answered
+
+contacts you have (if you never have deleted/rejected someone).
 
 ## Link implementation
 
