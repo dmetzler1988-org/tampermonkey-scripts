@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         LastPass DisableErrorOverlays
-// @namespace    http://tampermonkey.net/
+// @namespace    dmetzler1988
 // @version      0.1
 // @description  Disables the error popups from LastPass.
 // @author       dmetzler1988
