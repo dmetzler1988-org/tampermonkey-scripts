@@ -26,7 +26,7 @@
 
         const container = document.getElementById('partial-pull-merging');
         const mergeButtonContainer = container.getElementsByClassName('merge-message');
-        let buttons = mergeButtonContainer[0].getElementsByClassName('btn btn-primary');
+        let buttons = mergeButtonContainer[0].getElementsByClassName('btn js-details-target');
 
         if (counter === 0) {
             for (let i = 0; i < buttons.length; i++) {
