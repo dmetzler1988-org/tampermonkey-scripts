@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WIP GitHub - Do not merge
 // @namespace    dmetzler1988
-// @version      0.1
+// @version      0.2
 // @description  Do not merge GitHub pull requests with WIP in title.
 // @author       dmetzler1988
 // @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/github/do-not-merge.user.js
