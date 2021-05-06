@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira Copy Issue Number
 // @namespace    dmetzler1988
-// @version      0.1
+// @version      0.2
 // @description  Tool to copy easily issue number of Jira issue with keyboard, after issue is selected.
 // @author       dmetzler1988
 // @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/copy-issue-number.user.js
@@ -25,7 +25,7 @@
         }, function(err) {
             console.error('Async: Could not copy text: ', err);
         });
-    }
+    };
 
     const fallbackCopyTextToClipboard = (text) => {
         var textArea = document.createElement("textarea");
@@ -49,9 +49,9 @@
         }
 
         document.body.removeChild(textArea);
-    }
+    };
 
-    const start = () => {
+    const getIssueNo = () => {
         let issueNo;
         const currentLocation = window.location;
 
@@ -71,16 +71,51 @@
             }
         }
 
-        copyText(issueNo);
+        return issueNo;
+    };
+
+    const getProjectPrefix = () => {
+        let projectPrefix = '';
+        let $projectTitle = document.querySelectorAll("[data-test-id='issue.views.issue-base.foundation.summary.heading']");
+
+        if ($projectTitle.length > 0) {
+            console.warn('is not empty');
+            console.log($projectTitle);
+            let projectTitle = $projectTitle[0].innerText;
+            projectPrefix = projectTitle.split('|')[0].trim();
+        }
+
+        return projectPrefix;
     };
 
     document.addEventListener('keydown', event => {
         //console.log('keyCode: ' + event.keyCode);
 
-        // 187 = ´
+        // (221 = ´) oder (187 = +) ???
         if (event.keyCode === 187) {
             console.clear();
-            start();
+            const issueNo = getIssueNo();
+
+            if (issueNo) {
+                copyText(issueNo);
+            } else {
+                console.error('Oops, missing element. Abort.');
+            }
+        }
+
+        // 189 = -
+        if (event.keyCode === 189) {
+            console.clear();
+            let textToCopy = '';
+            const issueNo = getIssueNo();
+            const projectPrefix = getProjectPrefix();
+
+            if (issueNo && projectPrefix) {
+                textToCopy = projectPrefix + ' | ' + issueNo;
+                copyText(textToCopy);
+            } else {
+                console.error('Oops, missing elements. Abort.');
+            }
         }
     });
 })();
