@@ -88,11 +88,13 @@
         return projectPrefix;
     };
 
+    // @see https://keycode.info/ for keyCodes
     document.addEventListener('keydown', event => {
         //console.log('keyCode: ' + event.keyCode);
 
-        // (221 = ´) oder (187 = +) ???
-        if (event.keyCode === 187) {
+        // 187 = ´ and +
+        // 106 = * (NumPad)
+        if (event.keyCode === 106) {
             console.clear();
             const issueNo = getIssueNo();
 
@@ -104,7 +106,8 @@
         }
 
         // 189 = -
-        if (event.keyCode === 189) {
+        // 107 = + (NumPad)
+        if (event.keyCode === 107) {
             console.clear();
             let textToCopy = '';
             const issueNo = getIssueNo();
