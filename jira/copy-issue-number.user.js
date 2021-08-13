@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira Copy Issue Number
 // @namespace    dmetzler1988
-// @version      0.2
+// @version      0.3
 // @description  Tool to copy easily issue number of Jira issue with keyboard, after issue is selected.
 // @author       dmetzler1988
 // @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/copy-issue-number.user.js
