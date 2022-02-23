@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Jira Copy Issue Number
 // @namespace    dmetzler1988
-// @version      0.3
+// @version      0.4
 // @description  Tool to copy easily issue number of Jira issue with keyboard, after issue is selected.
 // @author       dmetzler1988
 // @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/copy-issue-number.user.js
 // @downloadURL  https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/copy-issue-number.user.js
 // @match        https://*.atlassian.net/*
+// @icon         https://wac-cdn-2.atlassian.com/image/upload/f_auto,q_auto/assets/img/favicons/atlassian/apple-touch-icon-114x114.png
 // @grant        none
 // ==/UserScript==
 
@@ -90,6 +91,7 @@
 
     // @see https://keycode.info/ for keyCodes
     document.addEventListener('keydown', event => {
+        //console.clear();
         //console.log('keyCode: ' + event.keyCode);
 
         // 187 = ´ and +
@@ -105,9 +107,8 @@
             }
         }
 
-        // 189 = -
-        // 107 = + (NumPad)
-        if (event.keyCode === 107) {
+        // 18 = ALT / opt
+        if (event.keyCode === 18) {
             console.clear();
             let textToCopy = '';
             const issueNo = getIssueNo();
