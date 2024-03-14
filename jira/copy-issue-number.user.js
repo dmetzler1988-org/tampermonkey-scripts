@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira Copy Issue Number
 // @namespace    dmetzler1988
-// @version      0.4
+// @version      0.5
 // @description  Tool to copy easily issue number of Jira issue with keyboard, after issue is selected.
 // @author       dmetzler1988
 // @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/copy-issue-number.user.js
@@ -56,7 +56,7 @@
         let issueNo;
         const currentLocation = window.location;
 
-        if (currentLocation.href.includes(DOMAIN + 'browse/')) {
+        if (currentLocation.href.includes('/browse/')) {
             const path = currentLocation.pathname;
             const splitted = path.split('/');
             issueNo = splitted.pop();
@@ -77,13 +77,13 @@
 
     const getProjectPrefix = () => {
         let projectPrefix = '';
-        let $projectTitle = document.querySelectorAll("[data-test-id='issue.views.issue-base.foundation.summary.heading']");
+        //let $projectTitle = document.querySelectorAll("[data-test-id='issue.views.issue-base.foundation.summary.heading']");
+        let $projectTitle = document.querySelectorAll("[data-testid='issue-field-parent.ui.view-link']");
 
         if ($projectTitle.length > 0) {
-            console.warn('is not empty');
-            console.log($projectTitle);
             let projectTitle = $projectTitle[0].innerText;
-            projectPrefix = projectTitle.split('|')[0].trim();
+            projectTitle = projectTitle.split('|')[0].trim();
+            projectPrefix = projectTitle.replace(/[a-zA-Z]{1,6}-\d{1,6}/, '').trim();
         }
 
         return projectPrefix;
