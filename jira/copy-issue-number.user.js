@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Jira Copy Issue Number
 // @namespace    dmetzler1988
-// @version      0.5
+// @version      0.6
 // @description  Tool to copy easily issue number of Jira issue with keyboard, after issue is selected.
 // @author       dmetzler1988
 // @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/copy-issue-number.user.js
 // @downloadURL  https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/copy-issue-number.user.js
 // @match        https://*.atlassian.net/*
-// @icon         https://wac-cdn-2.atlassian.com/image/upload/f_auto,q_auto/assets/img/favicons/atlassian/apple-touch-icon-114x114.png
+// @icon         https://play-lh.googleusercontent.com/_AZCbg39DTuk8k3DiPRASr9EwyW058pOfzvAu1DsfN9ygtbOlbuucmXaHJi5ooYbokQX=w480-h960-rw
 // @grant        none
 // ==/UserScript==
 
@@ -89,6 +89,25 @@
         return projectPrefix;
     };
 
+    const getIssueType = () => {
+        let issueType = '';
+        let $issueContainer = document.querySelectorAll("[data-testid='issue.views.issue-base.foundation.change-issue-type.button']");
+        $issueContainer = $issueContainer[0].querySelectorAll("[data-vc='common-components-async-icon']");
+
+        if ($issueContainer.length > 0) {
+            let originalIssueType = $issueContainer[0].alt;
+            switch(originalIssueType) {
+                case 'Bug':
+                    issueType = 'bugfix';
+                    break;
+                default:
+                    issueType = 'feature';
+            }
+        }
+
+        return issueType;
+    };
+
     // @see https://keycode.info/ for keyCodes
     document.addEventListener('keydown', event => {
         //console.clear();
@@ -96,7 +115,8 @@
 
         // 187 = ´ and +
         // 106 = * (NumPad)
-        if (event.keyCode === 106) {
+        // 221 = ¨
+        if (event.keyCode === 221) {
             console.clear();
             const issueNo = getIssueNo();
 
@@ -108,7 +128,7 @@
         }
 
         // 18 = ALT / opt
-        if (event.keyCode === 18) {
+        if (event.keyCode === 1999999) {
             console.clear();
             let textToCopy = '';
             const issueNo = getIssueNo();
@@ -116,6 +136,21 @@
 
             if (issueNo && projectPrefix) {
                 textToCopy = projectPrefix + ' | ' + issueNo;
+                copyText(textToCopy);
+            } else {
+                console.error('Oops, missing elements. Abort.');
+            }
+        }
+
+        // 18 = ALT / opt
+        if (event.keyCode === 18) {
+            console.clear();
+            let textToCopy = '';
+            const issueNo = getIssueNo();
+            const issueType = getIssueType();
+
+            if (issueNo && issueType) {
+                textToCopy = issueType + '/' + issueNo;
                 copyText(textToCopy);
             } else {
                 console.error('Oops, missing elements. Abort.');
