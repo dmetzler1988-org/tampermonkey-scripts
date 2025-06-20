@@ -4,8 +4,8 @@
 // @version      0.1
 // @description  Display the spint name on new Jira boards
 // @author       dmetzler1988
-// @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/jira-sprint-name-visibility.js
-// @downloadURL  https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/jira-sprint-name-visibility.js
+// @updateURL    https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/sprint-name-visibility.js
+// @downloadURL  https://github.com/dmetzler1988-org/tampermonkey-scripts/raw/master/jira/sprint-name-visibility.js
 // @match        https://.*.atlassian.net/jira/*/*/projects/*/boards/*
 // @icon         https://play-lh.googleusercontent.com/_AZCbg39DTuk8k3DiPRASr9EwyW058pOfzvAu1DsfN9ygtbOlbuucmXaHJi5ooYbokQX=w480-h960-rw
 // @grant        none
